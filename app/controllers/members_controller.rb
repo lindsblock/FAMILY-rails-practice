@@ -23,6 +23,25 @@ class MembersController < ApplicationController
     end
   end
 
+  def edit
+    @member = Member.find(params[:id])
+  end
+
+  def update
+    @member = Member.find(params[:id])
+    if @member.update(member_params)
+      redirect_to members_path
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    Member.find(params[:id]).destroy
+    redirect_to members_path
+  end
+
+
   private
     def member_params
       params.require(:member).permit(:name, :age, :gender, :eye_color, :hair_color)

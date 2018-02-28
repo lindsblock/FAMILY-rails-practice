@@ -1,9 +1,8 @@
-<h1> Members </h1>
+<h1> Members of the FAMBAM </h1>
 <p><%= link_to 'New Member', new_member_path %></p>
 <% @members.each do |member| %>
   <h3>Name: <%= member.name %></h3>
-
   <%= link_to 'Show Member', member_path(member) %>
   <%= link_to 'Edit Member', edit_member_path(member) %>
-  <%= link_to 'Destroy Member', member, method: :delete %>
+  <%= link_to 'Delete Member', member, method: :delete %>
   <% end %>
